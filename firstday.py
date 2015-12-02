@@ -1,0 +1,126 @@
+﻿def sum_of_digits(n):
+    suma = 0
+    for i in str(n):
+        suma+=int(i)
+    return suma
+
+def to_digits(n):
+    digits = []
+    for i in str(n):
+        digits.append(int(i))
+    return digits
+
+def to_number(n):
+    num = ''
+    for i in n:
+        num+=str(i)
+    return num
+
+def fact(n):
+    f = 1
+    for i in range(n,0,-1):
+        f*=i
+    return f
+
+def fact_digits(n):
+    suma = 0
+    for i in str(n):
+        suma+=fact(int(i))
+    return(suma)
+
+def fibonacci(n):
+    numbers = []
+    num1 = 1
+    num2 = 1
+    num_next = 1
+    if n>=1:
+        numbers.append(int(num1))
+    if n>=2:
+        numbers.append(int(num2))
+    for i in range(0, n-2,1):
+        num_next = num1+num2
+        numbers.append(int(num_next))
+        num1 = num2
+        num2 = num_next
+    return numbers
+
+def fib_numbers(n):
+    numbers = []
+    num1 = 1
+    num2 = 1
+    num_next = 1
+    if n>=1:
+        numbers.append(int(num1))
+    if n>=2:
+        numbers.append(int(num2))
+    for i in range(0, n-2,1):
+        num_next = num1+num2
+        numbers.append(int(num_next))
+        num1, num2 = num2, num_next
+    return to_number(numbers)
+
+def fibonacci_doi(n):
+    result = []
+    a = 1
+    b = 1
+    while len(result) < n:
+        result.append(a)
+        a, b = b, a+b
+    return result
+
+def palindrome(n):
+    r=n[::-1]
+    for i in range(0, (len(n)+1)//2):
+        if r[i]!=n[i]:
+            return False
+    return True
+
+def is_palindrome(n):
+    f = str(n)
+    for i in range(0, (len(f)+1)//2):
+        if f[len(f)-i-1]!=f[i]:
+            return False
+    return True
+    
+def count_vowels(n):
+    vowels = 0
+    for i in str(n):
+        if i == 'a' or i == 'e' or i == 'i' or i == 'o' or i == 'u' or i == 'y':
+            vowels+=1
+    return vowels
+
+def count_consonants(n):
+    consonants = 0
+    for i in str(n):
+        if i == 'a' or i == 'e' or i == 'i' or i == 'o' or i == 'u' or i == 'y':
+            pass
+        else:
+            consonants+=1
+    return consonants
+
+def char_histogram(n):
+    histogram = {}
+    letter = ''
+    occurance = 0
+    for i in str(n):
+        letter = i
+        for j in range(0, len(n),1):
+            if n[j] == letter:
+                occurance+=1
+            else:
+                pass
+        histogram.update({letter: occurance})
+        occurance = 0
+    return histogram
+
+print(sum_of_digits(144533))
+print(to_digits(216780))
+print(fact_digits(555))
+print(to_number([3,4,5,6]))
+print(fibonacci(22))
+print(fibonacci_doi(11))
+print(fib_numbers(10))
+print(palindrome('121'))
+print(count_vowels('Vladimiraa'))
+print(count_consonants('Vladimir'))
+print(char_histogram('Vladimitraa'))

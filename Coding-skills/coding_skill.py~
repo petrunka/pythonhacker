@@ -1,0 +1,18 @@
+import json
+import sys
+
+def main():
+    
+    with open(sys.argv[1:], 'r') as f:
+        data = json.load(f)
+        people = data['people']
+        skills = []
+        for i in people:
+            skills.append(i['skills'])
+    return skills
+            
+        
+
+if __name__ == '__main__':
+    main()
+

@@ -1,0 +1,5 @@
+import unittest
+from bill import Bill
+
+b = Bill(20)
+print(b)

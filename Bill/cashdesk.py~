@@ -1,38 +1,17 @@
-class Bill:
-    def __init__(self, _amount):
-        self._amount = _amount
+class CashDesk:
+    def __init__(self):
+        self.cash = []
 
-    def __str__(self):
-        return "A {}$ bill".format(self._amount)
+    def take_money(self, amount):
+        self.cash.append(amount)            
 
-    def __repr__(self):
-        return self.__str__()
+    def total(self):
+        return sum([obj.total() for obj in self.cash])        
 
-    def __int__(self):
-        return int(self._amount)
+    def inspect(self):
+        total = "We have a total of {}$ in the desk.".format(self._amount)
+        total+="\nWe have the following count of bills, sorted in ascending order."
+        for i in bills:
+            total+="\n"+str(i)
+        return total
 
-    def __eq__(self, other):
-        return self._amount == other._amount
-
-    def __hash__(self):
-        return int(self._amount)
-
-    def _get_amount(self):
-        return self._amount
-
-
-a = Bill(11)
-b = Bill(11)
-c = Bill(7)
-money_holder = {}
-money_holder[a]=1
-if b in money_holder:
-    money_holder[b]+=1
-print(money_holder)
-print(a)
-print(int(a))
-print(str(a))
-print(a==b)
-print(a==c)
-
-    

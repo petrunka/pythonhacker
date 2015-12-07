@@ -6,7 +6,13 @@ class BankAccount:
         self._hist = ['Account was created.']
 
     def __str__(self):
-        return "Bank account for {} with balance of {}{}".format(self._name, self._balance, self._currency)
+        return "Bank account for {} with balance of {} {}".format(self._name, self._balance, self._currency)
+
+    def get_name(self):
+        return self._name
+
+    def get_currency(self):
+        return self._currency
 
     def __int__(self):
         return int(self._balance)
@@ -23,8 +29,8 @@ class BankAccount:
     def withdraw(self, amount):
         if amount<=self._balance:
             self._balance-=amount
-        self._hist.append('Withdrawn {}{}'.format(amount, self._currency))
-        self._hist.append('Balance check => {}{}'.format(self._balance, self._currency))
+            self._hist.append('Withdrawn {}{}'.format(amount, self._currency))
+            self._hist.append('Balance check => {}{}'.format(self._balance, self._currency))
         else:
             self._hist.append('{}{} withdraw failed'.format(amount, self._currency))
 
@@ -33,7 +39,7 @@ class BankAccount:
             self._balance-=amount
             other._balance+=amount
             self._hist.append('Transferred {}{} to {}'.format(amount, self._currency, other._name))
-        self._hist.append('Balance check => {}{}'.format(self._balance, self._currency))
+            self._hist.append('Balance check => {}{}'.format(self._balance, self._currency))
         else:
             self._hist.append('{}{} transfer to {} failed'.format(amount, self._currency, other._name))
 

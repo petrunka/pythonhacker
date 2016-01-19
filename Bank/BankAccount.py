@@ -3,7 +3,7 @@ class BankAccount:
         self._name = name
         self._balance = balance
         self._currency = currency
-        self._hist = ['Account was created.']
+        self._hist = ['Account was created']
 
     def __str__(self):
         return "Bank account for {} with balance of {} {}".format(self._name, self._balance, self._currency)
@@ -20,7 +20,7 @@ class BankAccount:
     def deposit(self, amount):
         self._balance +=amount
         self._hist.append('Deposited {}{}'.format(amount, self._currency))
-        self._hist.append('Balance check => {}{}'.format(self._balance, self._currency))
+        self._hist.append('Balance check -> {}{}'.format(self._balance, self._currency))
         
 
     def balance(self):
